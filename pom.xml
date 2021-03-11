@@ -11,6 +11,7 @@
         <module>Cloud-provider-payment8001</module>
         <module>cloud-consumer-order80</module>
         <module>cloud-api-common</module>
+        <module>cloud-eureka-server7001</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,13 +22,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
-        <lombok.version>1.16.18</lombok.version>
-        <mysql.version>5.1.47</mysql.version>
-        <druid.version>1.1.9</druid.version>
+        <lombok.version>1.18.12</lombok.version>
+        <mysql.version>5.1.39</mysql.version>
+        <druid.version>1.1.8</druid.version>
+        <mybatis.spring.boot.version>1.3.2</mybatis.spring.boot.version>
         <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
         <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
-        <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
     </properties>
 
     <!--子模块继承后,提供作用:锁定版本+子module不用groupId和version-->
@@ -70,6 +71,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

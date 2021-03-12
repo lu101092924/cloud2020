@@ -13,8 +13,8 @@ import javax.annotation.Resource;
 @RestController
 public class ConsumerController {
 
-    private static final String PAYMENT_URL = "http://127.0.0.1:8001";
-
+    //private static final String PAYMENT_URL = "http://127.0.0.1:8001";
+    private static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
     @Resource
     private RestTemplate restTemplate;
 

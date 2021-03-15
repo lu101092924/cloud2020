@@ -10,6 +10,11 @@ eureka:
     service-url:
       #设置eureka服务交互地址，查询服务和注册服务都需要改地址
       defaultZone: http://eureka7002.com:7002/eureka
+  server:
+    #关闭自我保护机制，保证不可用服务及时剔除
+    enable-self-preservation: false
+    #检测服务过期时间间隔
+    eviction-interval-timer-in-ms: 2000
 spring:
   application:
     name: eureka-server-7001

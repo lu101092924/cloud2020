@@ -2,6 +2,7 @@ package com.springcloud.controller;
 
 import com.springcloud.entity.CommonResult;
 import com.springcloud.entity.Payment;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +37,20 @@ public class ConsumerController {
     @GetMapping("/consumer/payment/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         return restTemplate.getForObject(PAYMENT_URL+"/payment/"+id,CommonResult.class);
+    }
+
+    /**
+     * 根据id查询支付记录
+     * @param id
+     * @return
+     */
+    @GetMapping("/consumer/payment/getForEntity/{id}")
+    public CommonResult<Payment> getPaymentById2(@PathVariable("id") Long id){
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/" + id, CommonResult.class);
+        if(entity.getStatusCode().is2xxSuccessful()){
+            return entity.getBody();
+        }else{
+            return new CommonResult(444,"操作失败");
+        }
     }
 }

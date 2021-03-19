@@ -1,5 +1,6 @@
 package com.springcloud.controller;
 
+import com.mysql.jdbc.TimeUtil;
 import com.springcloud.entity.CommonResult;
 import com.springcloud.entity.Payment;
 import com.springcloud.service.PaymentService;
@@ -79,6 +80,16 @@ public class PaymentController {
 
     @GetMapping(value = "/payment/lb")
     public String getPaymentLB() {
+        return serverPort;
+    }
+
+    @GetMapping("/payment/feign/timeout")
+    public String paymentFeignTimeOut(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 }

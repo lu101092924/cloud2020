@@ -45,7 +45,7 @@ public class ConsumerController {
      */
     @GetMapping("/consumer/payment/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
-        return restTemplate.getForObject(PAYMENT_URL+"/payment/"+id,CommonResult.class);
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
     }
 
     /**
@@ -55,7 +55,7 @@ public class ConsumerController {
      */
     @GetMapping("/consumer/payment/getForEntity/{id}")
     public CommonResult<Payment> getPaymentById2(@PathVariable("id") Long id){
-        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/" + id, CommonResult.class);
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
         if(entity.getStatusCode().is2xxSuccessful()){
             return entity.getBody();
         }else{

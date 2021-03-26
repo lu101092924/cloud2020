@@ -10,6 +10,12 @@ spring:
       name: config
       profile: dev
       uri: http://localhost:3344
+  #RabbitMQ信息
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: guest
+    username: guest
 eureka:
   client:
     service-url:

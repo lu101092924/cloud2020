@@ -12,6 +12,11 @@
     <artifactId>Cloud-provider-payment8001</artifactId>
 
     <dependencies>
+        <!--包含了sleuth+zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>cloud-api-common</artifactId>
